@@ -1,0 +1,15 @@
+body {
+  margin: 1em;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-content: space-around;
+  border: 1px solid red;
+}
+
+.cell {
+  display: inline;
+  border: 1px solid rgba(0, 0, 0, .1);
+}
