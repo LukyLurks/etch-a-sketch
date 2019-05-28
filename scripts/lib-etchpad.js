@@ -19,9 +19,10 @@ define(function() {
     return grid;
   }
   
+  // Computes single cell size based on available window space
   const getCellSize = function(grid, gridSize) {
-    let availableWidth = 0.85 * window.innerWidth;
-    let availableHeight = 0.85 * window.innerHeight;
+    let availableWidth = 0.8 * window.innerWidth;
+    let availableHeight = 0.8 * window.innerHeight;
     let shortest = Math.min(availableWidth, availableHeight);
     return Math.floor(shortest / gridSize);
   }
@@ -34,7 +35,7 @@ define(function() {
         child.style.height = newSize + 'px';
       }
     });
-    // removes space between rows
+    // removes unwanted space between rows
     grid.style.lineHeight = 0;
     return newSize;
   }
@@ -51,10 +52,11 @@ define(function() {
     return `rgb(${red}, ${green}, ${blue})`;
   }
 
+  // Add listeners to color cells on hover
   const enableDrawing = function(grid) {
     Array.from(grid.children).forEach((child) => {
       if(child.classList.contains('cell')) {
-        child.addEventListener('mouseover', (e) => {
+        child.addEventListener('mouseenter', (e) => {
           const color = document.querySelector('#color').textContent;
           if(color === 'random') {
             e.target.style.backgroundColor = getRandomRGB();
@@ -66,6 +68,7 @@ define(function() {
     });
   }
 
+  // Creates a usable blank grid
   const initGrid = function() {
     const grid = document.querySelector('#grid');
     const gridSize = +(document.querySelector('#gridSize').value);
@@ -73,6 +76,7 @@ define(function() {
     createGrid(grid, gridSize);
     resizeCells(grid, gridSize);
     enableDrawing(grid);
+    return grid;
   }
 
   const initClearButton = function(clearButton) {
@@ -86,8 +90,13 @@ define(function() {
     });
   }
 
-  const initApplySizeButton = function(applySizeButton) {
+  // Creates a new grid with the specified size
+  const initApplySize = function(applySizeButton, applySizeInput) {
     applySizeButton.addEventListener('click', initGrid);
+    applySizeInput.addEventListener('keydown', (e) => {
+      if(e.key !== 'Enter') return;
+      initGrid();
+    });
   }
 
   const initColorToggle = function(colorToggle, color) {
@@ -100,22 +109,20 @@ define(function() {
     });
   }
 
+  // Add listeners to all buttons and fields
   const initUI = function() {
     const clearButton = document.querySelector('#clear');
     const applySizeButton = document.querySelector('#applyGridSize');
     const colorToggle = document.querySelector('#colorToggle');
     const color = document.querySelector('#color');
+    const applySizeInput = document.querySelector('#gridSize');
     initClearButton(clearButton);
-    initApplySizeButton(applySizeButton);
+    initApplySize(applySizeButton, applySizeInput);
     initColorToggle(colorToggle, color);
   }
 
-  const initAll = function() {
-    initUI();
-    initGrid();
-  }
-
   return {
-    initAll
+    initUI,
+    initGrid
   }
 });

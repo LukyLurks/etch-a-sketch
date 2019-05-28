@@ -1,3 +1,4 @@
 requirejs(['lib-etchpad'], function(libEtchpad) {
-  libEtchpad.initAll();
+  libEtchpad.initUI();
+  libEtchpad.initGrid();
 });
