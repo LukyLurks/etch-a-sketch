@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles/main.css">
     <title>EtchPad</title>
   </head>
+
   <body>
     <div class="container">
       <h1>EtchPad</h1>
@@ -14,13 +15,16 @@
     
     <div class="container">
       <button>Clear</button>
-      <button>Grid Size</button>
+      <label for="gridSize">Grid size:</label>
+      <input id ="gridSize" name="gridSize" type="text" minlength="1" maxlength="3">
+      <button>Apply</button>
       <button>Black &amp; White / Random</button>
     </div>
 
     <div class="container">
       <div id="grid"></div>
     </div>
-      <script data-main="scripts/main.js" src="scripts/require.js"></script>
+
+    <script data-main="scripts/main.js" src="scripts/require.js"></script>
   </body>
 </html>

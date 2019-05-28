@@ -1,15 +1,12 @@
-body {
+html {
   margin: 1em;
 }
 
-.container {
-  display: flex;
-  justify-content: center;
-  align-content: space-around;
-  border: 1px solid red;
+#gridSize {
+  width: 2em;
 }
 
 .cell {
-  display: inline;
+  display: inline-block;
   border: 1px solid rgba(0, 0, 0, .1);
 }
