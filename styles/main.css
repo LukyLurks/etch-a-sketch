@@ -1,9 +1,14 @@
-html {
-  margin: 1em;
+.container {
+  display: flex;
+  justify-content: space-around;
 }
 
 #gridSize {
   width: 2em;
+}
+
+#grid {
+  overflow: hidden;
 }
 
 .cell {

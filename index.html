@@ -14,11 +14,18 @@
     </div>
     
     <div class="container">
-      <button>Clear</button>
-      <label for="gridSize">Grid size:</label>
-      <input id ="gridSize" name="gridSize" type="text" minlength="1" maxlength="3">
-      <button>Apply</button>
-      <button>Black &amp; White / Random</button>
+      <div class="container">
+        <button id="clear">Clear</button>
+      </div>
+      <div class="container">
+        <label for="gridSize">Grid size:</label>
+        <input id="gridSize" name="gridSize" type="text" minlength="1" maxlength="3" value="16">
+        <button id="applyGridSize">Apply</button>
+      </div>
+      <div class="container">
+        <button id="colorToggle">Black &amp; White / Random</button>
+        <p>Current color: <span id="color">black</span></p>
+      </div>
     </div>
 
     <div class="container">
