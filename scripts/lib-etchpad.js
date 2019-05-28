@@ -33,9 +33,38 @@ define(function() {
     return newSize;
   }
 
+  // Random integer from 0 included to n excluded
+  const getRandomInt = function(n) {
+    return Math.floor(Math.random() * Math.floor(n));
+  }
+
+  const getRandomRGB = function() {
+    let red = getRandomInt(255);
+    let green = getRandomInt(255);
+    let blue = getRandomInt(255);
+    return `rgb(${red}, ${green}, ${blue})`;
+  }
+
+  const enableDrawing = function(grid, color) {
+    Array.from(grid.children).forEach((child) => {
+      if(child.classList.contains('cell')) {
+        child.addEventListener('mouseover', (e) => {
+          if(color === 'random') {
+            e.target.style.backgroundColor = getRandomRGB();
+          } else {
+            e.target.style.backgroundColor = color;
+          }
+        });
+      }
+    });
+  }
+
   return {
     createGrid,
     getCellSize,
-    resizeCells
+    resizeCells,
+    getRandomInt,
+    getRandomRGB,
+    enableDrawing
   }
 });
