@@ -21,8 +21,15 @@ define(function() {
   
   // Computes single cell size based on available window space
   const getCellSize = function(grid, gridSize) {
-    let availableWidth = 0.75 * window.innerWidth;
-    let availableHeight = 0.75 * window.innerHeight;
+    let windowWidth = window.innerWidth;
+    let windowHeight = window.innerHeight;
+
+    // Not optimal, but good enough to avoid scrollbars/overflow
+    let reservedHeight = 2 * grid.offsetTop;
+    let reservedWidth = grid.offsetTop;
+
+    let availableWidth = windowWidth - reservedWidth;
+    let availableHeight = windowHeight - reservedHeight;
     let shortest = Math.min(availableWidth, availableHeight);
     return Math.floor(shortest / gridSize);
   }
@@ -38,6 +45,12 @@ define(function() {
     // removes unwanted space between rows
     grid.style.lineHeight = 0;
     return newSize;
+  }
+
+  const enableAutoResize = function(grid, gridSize) {
+    window.addEventListener('resize', () => {
+      resizeCells(grid, gridSize);
+    });
   }
 
   // Random integer from 0 included to n excluded
@@ -75,6 +88,7 @@ define(function() {
     purgeGrid(grid);
     createGrid(grid, gridSize);
     resizeCells(grid, gridSize);
+    enableAutoResize(grid, gridSize);
     enableDrawing(grid);
     return grid;
   }

@@ -7,12 +7,22 @@ html, body {
 .container {
   margin: .7em 1em;
   display: flex;
+  flex-flow: row wrap;
   justify-content: space-around;
   align-items: baseline;
 }
 
+.container::after {
+  content: '';
+  width: 100%;
+}
+
 h1 {
   font-size: 1.6em;
+}
+
+h2 {
+  order: 1;
 }
 
 button {
