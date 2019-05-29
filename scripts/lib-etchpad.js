@@ -21,8 +21,8 @@ define(function() {
   
   // Computes single cell size based on available window space
   const getCellSize = function(grid, gridSize) {
-    let availableWidth = 0.8 * window.innerWidth;
-    let availableHeight = 0.8 * window.innerHeight;
+    let availableWidth = 0.75 * window.innerWidth;
+    let availableHeight = 0.75 * window.innerHeight;
     let shortest = Math.min(availableWidth, availableHeight);
     return Math.floor(shortest / gridSize);
   }
@@ -99,8 +99,8 @@ define(function() {
     });
   }
 
-  const initColorToggle = function(colorToggle, color) {
-    colorToggle.addEventListener('click', (e) => {
+  const initColorToggle = function(color) {
+    color.addEventListener('click', (e) => {
       if(color.textContent === 'black') {
         color.textContent = 'random';
       } else {
@@ -113,12 +113,11 @@ define(function() {
   const initUI = function() {
     const clearButton = document.querySelector('#clear');
     const applySizeButton = document.querySelector('#applyGridSize');
-    const colorToggle = document.querySelector('#colorToggle');
     const color = document.querySelector('#color');
     const applySizeInput = document.querySelector('#gridSize');
     initClearButton(clearButton);
     initApplySize(applySizeButton, applySizeInput);
-    initColorToggle(colorToggle, color);
+    initColorToggle(color);
   }
 
   return {

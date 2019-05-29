@@ -1,21 +1,37 @@
+html, body {
+  margin-top: .7em;
+  font-family: "Noto Sans", Helvetica, Arial;
+  text-align: center;
+}
+
 .container {
-  margin-top: .5em;
+  margin: .7em 1em;
   display: flex;
   justify-content: space-around;
+  align-items: baseline;
+}
+
+h1 {
+  font-size: 1.6em;
+}
+
+button {
+  width: 7em;
+  padding: .15em;
+  text-align: center;
 }
 
 #gridSize {
-  width: 2em;
+  width: 1.6em;
 }
 
 #grid {
-  border: 1px solid rgba(0, 0, 0, .1);
-  border-width: 0 0 1px 1px;
+  border: 1px solid rgba(0, 0, 0, .125);
+  border-width: 4px 4px 3px 3px;
 }
 
 .cell {
   display: inline-block;
   border: solid rgba(0, 0, 0, .1);
-  border-width: 1px 1px 0 0;
-  
+  border-width: 0 0 1px 1px;
 }
