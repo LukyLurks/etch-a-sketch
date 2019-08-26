@@ -67,16 +67,14 @@ define(function() {
 
   // Add listeners to color cells on hover
   const enableDrawing = function(grid) {
-    Array.from(grid.children).forEach((child) => {
-      if(child.classList.contains('cell')) {
-        child.addEventListener('mouseenter', (e) => {
-          const color = document.querySelector('#color').textContent;
-          if(color === 'random') {
-            e.target.style.backgroundColor = getRandomRGB();
-          } else {
-            e.target.style.backgroundColor = color;
-          }
-        });
+    grid.addEventListener('mouseover', (e) => {
+      if(e.target.classList.contains('cell')) {
+        const color = document.querySelector('#color').textContent;
+        if(color === 'random') {
+          e.target.style.backgroundColor = getRandomRGB();
+        } else {
+          e.target.style.backgroundColor = color;
+        }
       }
     });
   }
