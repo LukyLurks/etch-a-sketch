@@ -1,4 +1,4 @@
-requirejs(['lib-etchpad'], function(libEtchpad) {
-  libEtchpad.initUI();
-  libEtchpad.initGrid();
+requirejs(['lib'], function(lib) {
+  lib.initUI();
+  lib.initGrid();
 });

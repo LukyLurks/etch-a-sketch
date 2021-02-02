@@ -24,7 +24,7 @@ define(function() {
     let windowWidth = window.innerWidth;
     let windowHeight = window.innerHeight;
 
-    // Not optimal, but good enough to avoid scrollbars/overflow
+    // Doesn't maximize used space, but prevents scrollbars and overflows
     let reservedHeight = 2 * grid.offsetTop;
     let reservedWidth = grid.offsetTop;
 
