@@ -9,7 +9,7 @@ to become familiar with JavaScript and DOM manipulation.
 
 ## Usage
 
-- Visit the [game's page here](https://lcyne.github.io/etch-a-sketch/)
+- Visit the [game's page here](https://lukylurks.github.io/etch-a-sketch/)
 - Enter a resolution and click "Apply" to get a new grid with those parameters
 - Hover your mouse around the grid
 
